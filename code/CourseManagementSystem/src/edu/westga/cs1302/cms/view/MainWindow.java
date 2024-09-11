@@ -1,10 +1,17 @@
 package edu.westga.cs1302.cms.view;
 
+import static org.junit.Assert.assertArrayEquals;
+
+import java.util.ArrayList;
+
 import edu.westga.cs1302.cms.model.Student;
+import edu.westga.cs1302.cms.model.Students;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ListView;
+import javafx.scene.control.MultipleSelectionModel;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextArea;
 
@@ -18,6 +25,7 @@ public class MainWindow {
     @FXML private ListView<Student> students;
     @FXML private TextField grade;
     @FXML private TextArea displayGradeArea;
+    @FXML private TextArea displayAverageGrade;
 
     @FXML
     void addStudent(ActionEvent event) {
@@ -61,13 +69,26 @@ public class MainWindow {
     		errorPopup.showAndWait();
     	}
     }
-
+    
+//    @FXML
+//    void displayAvg(ActionEvent event) {
+//    	Students studentsInClass = this.students.getSelectionModel();
+//    	if (studentsInClass != null) {
+//    		this.displayAverageGrade.setText(String.valueOf(studentsInClass.getAverage()));
+//    	} else {
+//    		Alert errorPopup = new Alert(Alert.AlertType.ERROR);
+//    		errorPopup.setContentText("No students in class. Unable to view grade average.");
+//    		errorPopup.showAndWait();
+//    	}
+//	}
+    
     @FXML
     void initialize() {
     	assert this.displayGradeArea != null : "fx:id=\"displayGradeArea\" was not injected: check your FXML file 'MainWindow.fxml'.";
         assert this.name != null : "fx:id=\"name\" was not injected: check your FXML file 'MainWindow.fxml'.";
         assert this.students != null : "fx:id=\"students\" was not injected: check your FXML file 'MainWindow.fxml'.";
         assert this.grade != null : "fx:id=\"grade\" was not injected: check your FXML file 'MainWindow.fxml'.";
+        assert this.displayAverageGrade != null : "fx:id=\"displayAverageGrade\" was not injected: check your FXML file 'MainWindow.fxml'.";
     }
 
 }
