@@ -1,1 +1,1 @@
-# UWG-DevOppsF24-lab3
+# UWG-DevOppsF24-labs
