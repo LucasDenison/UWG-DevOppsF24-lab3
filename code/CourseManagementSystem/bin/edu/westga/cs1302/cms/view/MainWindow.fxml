@@ -19,6 +19,6 @@
       <Button layoutX="197.0" layoutY="167.0" mnemonicParsing="false" onAction="#displayGrade" prefHeight="26.0" prefWidth="87.0" text="Show Grade" />
       <TextArea fx:id="displayGradeArea" layoutX="220.0" layoutY="129.0" prefHeight="6.0" prefWidth="3.0" />
       <TextArea fx:id="displayAverageGrade" layoutX="220.0" layoutY="218.0" prefHeight="6.0" prefWidth="3.0" />
-      <Button layoutX="195.0" layoutY="257.0" mnemonicParsing="false" onAction="#displayAvg" prefHeight="26.0" prefWidth="87.0" text="Show Avg" />
+      <Button layoutX="195.0" layoutY="257.0" mnemonicParsing="false"  prefHeight="26.0" prefWidth="87.0" text="Show Avg" />
    </children>
 </AnchorPane>
