@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane minHeight="213.0" minWidth="298.0" prefHeight="213.0" prefWidth="298.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.westga.cs1302.p1.view.MainWindow">
+   <children>
+      <Label layoutX="26.0" layoutY="10.0" text="Food name" />
+      <TextField fx:id="foodName" layoutX="23.0" layoutY="28.0" prefHeight="26.0" prefWidth="65.0" />
+      <Label layoutX="29.0" layoutY="98.0" text="Food type" />
+      <ComboBox fx:id="foodType" layoutX="10.0" layoutY="122.0" prefHeight="26.0" prefWidth="91.0" />
+      <Button layoutX="22.0" layoutY="158.0" mnemonicParsing="false" onAction="#addFood" text="add Food" />
+      <ListView fx:id="pantryList" layoutX="104.0" layoutY="10.0" prefHeight="194.0" prefWidth="180.0" />
+      <Label layoutX="34.0" layoutY="54.0" text="Amount" />
+      <TextField fx:id="foodAmount" layoutX="23.0" layoutY="72.0" prefHeight="26.0" prefWidth="65.0" />
+   </children>
+</AnchorPane>
