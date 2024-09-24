@@ -1,0 +1,110 @@
+commit 3a278492056dd5eda5f182b0cfe6ac822516b01b
+Merge: 6e7a0b4 28892ae
+Author: LucasDenison <ldeniso1@my.westga.edu>
+Date:   Tue Sep 17 21:37:35 2024 -0400
+
+    Merge pull request #6 from LucasDenison/feature-SetUp
+    
+    Set up
+
+commit 28892aec5414a2b3b68c0a9d0580e0c14784bc17
+Author: Lucas <ldeniso1@my.westga.edu>
+Date:   Tue Sep 17 21:35:29 2024 -0400
+
+    Set up
+    
+    Set up the project
+
+commit 6e7a0b484eff68fbe023992dc75973a153a6c3c0
+Merge: 0dae2bf a058c18
+Author: LucasDenison <ldeniso1@my.westga.edu>
+Date:   Thu Sep 12 20:55:05 2024 -0400
+
+    Merge pull request #5 from LucasDenison/Lab4-feature2-Update
+    
+    Finished feature2.
+
+commit a058c183f0a21f077dc7e3250a6ded25fa2eb123
+Author: Lucas <ldeniso1@my.westga.edu>
+Date:   Thu Sep 12 20:49:43 2024 -0400
+
+    Finished feature2. Added code to BillCalculator,
+    test/model/bill_calculator/, and edited BillTextifier
+
+commit 0dae2bf7508cb3dbe6fe411228c81764f9218000
+Merge: 0972c51 e496a21
+Author: LucasDenison <ldeniso1@my.westga.edu>
+Date:   Thu Sep 12 16:17:35 2024 -0400
+
+    Merge pull request #4 from LucasDenison/Lab4-feature1-Update
+    
+    Made the fields in BillItem final
+
+commit e496a21a6b13671deb9ece94ec590735266f9986
+Author: Lucas <ldeniso1@my.westga.edu>
+Date:   Thu Sep 12 16:15:59 2024 -0400
+
+    made the fields in BillItem final
+
+commit 0972c518b8f38e6d9a8d3b4e88581d7e8e9ad20a
+Author: LucasDenison <ldeniso1@my.westga.edu>
+Date:   Thu Sep 12 16:03:13 2024 -0400
+
+    Update README.md
+
+commit 6ce5188db88b673c9d05c5fe1817903af9a34f58
+Author: Lucas <ldeniso1@my.westga.edu>
+Date:   Thu Sep 12 16:01:39 2024 -0400
+
+    added BillSystem to repo
+
+commit 57ae389355291535f9c5750d5a5df0b47b5de734
+Merge: d96f283 e881fe1
+Author: LucasDenison <ldeniso1@my.westga.edu>
+Date:   Wed Sep 11 19:24:29 2024 -0400
+
+    Merge pull request #3 from LucasDenison/feature2-Update
+    
+    Almost finished all of feature2. Need to fix UI issue
+
+commit e881fe1df4f50fa0540898e083e1db63a1d5b080
+Author: Lucas <ldeniso1@my.westga.edu>
+Date:   Wed Sep 11 19:20:41 2024 -0400
+
+    Almost finished all of feature2. Need to fix UI issue
+
+commit d96f2838c91c0a87e3469fbdf52983951d2e79ce
+Merge: 1f5cb3d 6e57caa
+Author: LucasDenison <ldeniso1@my.westga.edu>
+Date:   Tue Sep 10 17:17:35 2024 -0400
+
+    Merge pull request #2 from LucasDenison/feature-Update-2
+    
+    Finished freature 1.
+
+commit 6e57caac6982296fdfd1f609bd2d1c26ce9abcf8
+Author: Lucas <ldeniso1@my.westga.edu>
+Date:   Tue Sep 10 17:12:55 2024 -0400
+
+    Finished freature 1. Added remove function and a funtion to view grade
+
+commit 1f5cb3dfea7ef5ff7e7c93fc6adcd7d14e16199a
+Merge: 0a3ed52 59c8107
+Author: LucasDenison <ldeniso1@my.westga.edu>
+Date:   Sun Sep 8 14:41:20 2024 -0400
+
+    Merge pull request #1 from LucasDenison/feature-Update
+    
+    Editted multiple parts for feature 1
+
+commit 59c810777a2eaeb1ec70f47697136fafe309d4e1
+Author: Lucas <ldeniso1@my.westga.edu>
+Date:   Sun Sep 8 14:34:28 2024 -0400
+
+    Changed UI, TestConstructor, Student Class, and add student method inside MainWindow
+
+commit 0a3ed5279e8696f5d9d3bacf4ac598b2459a5fba
+Author: LucasDenison <ldeniso1@my.westga.edu>
+Date:   Sun Sep 8 12:41:51 2024 -0400
+
+    Initial commit

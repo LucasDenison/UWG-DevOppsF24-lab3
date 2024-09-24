@@ -70,6 +70,14 @@ public class FoodItem {
 		this.quantity += amount; 
 	}
 	
+	/** Subtracts the amount of the food item to the quantity
+	 * 
+	 * @param amount amount of the food item you want to subtract
+	 */
+	public void subtractQuantity(int amount) {
+		this.quantity -= amount; 
+	}
+	
 	/** Sets the amount of the food item to the quantity
 	 * 
 	 * @precondition amount > 0
