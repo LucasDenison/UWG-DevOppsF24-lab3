@@ -5,6 +5,7 @@ import javafx.scene.control.TextField;
 import java.net.URL;
 import java.util.ResourceBundle;
 import edu.westga.cs1302.p1.model.FoodItem;
+import edu.westga.cs1302.p1.model.TotalFood;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -24,6 +25,7 @@ public class MainWindow {
 	@FXML private ComboBox<String> foodType;
 	@FXML private ListView<FoodItem> pantryList;
 	@FXML private TextField updateAmount;
+	@FXML private TextField foodTotal;
 	
 	@FXML
     void addFood(ActionEvent event) {
@@ -55,11 +57,11 @@ public class MainWindow {
 			this.pantryList.getItems().add(item);
 		} catch (NumberFormatException errorNum1) {
 			Alert errorPopup = new Alert(Alert.AlertType.ERROR);
-    		errorPopup.setContentText("Unable to update amount." + errorNum1 + "Please enter amount and try again");
+    		errorPopup.setContentText("Unable to update amount." + errorNum1.getMessage() + "Please enter amount and try again");
     		errorPopup.showAndWait();
 		} catch (NullPointerException errorNum2) {
 			Alert errorPopup = new Alert(Alert.AlertType.ERROR);
-    		errorPopup.setContentText("Unable to update amount." + errorNum2 + "Please select food and try again");
+    		errorPopup.setContentText("Unable to update amount." + errorNum2.getMessage() + "Please select food and try again");
     		errorPopup.showAndWait();
     	}
     }
@@ -82,11 +84,11 @@ public class MainWindow {
 			this.pantryList.getItems().add(item);
 		} catch (NumberFormatException errorNum1) {
 			Alert errorPopup = new Alert(Alert.AlertType.ERROR);
-    		errorPopup.setContentText("Unable to update amount." + errorNum1 + "Please enter amount and try again");
+    		errorPopup.setContentText("Unable to update amount." + errorNum1.getMessage() + "Please enter amount and try again");
     		errorPopup.showAndWait();
 		} catch (NullPointerException errorNum2) {
 			Alert errorPopup = new Alert(Alert.AlertType.ERROR);
-    		errorPopup.setContentText("Unable to update amount." + errorNum2 + "Please select food and try again");
+    		errorPopup.setContentText("Unable to update amount." + errorNum2.getMessage() + "Please select food and try again");
     		errorPopup.showAndWait();
     	}
     }
@@ -102,11 +104,11 @@ public class MainWindow {
 			this.pantryList.getItems().add(item);
 		} catch (NumberFormatException errorNum1) {
 			Alert errorPopup = new Alert(Alert.AlertType.ERROR);
-    		errorPopup.setContentText("Unable to update amount." + errorNum1 + "Please enter amount and try again");
+    		errorPopup.setContentText("Unable to update amount." + errorNum1.getMessage() + "Please enter amount and try again");
     		errorPopup.showAndWait();
 		} catch (NullPointerException errorNum2) {
 			Alert errorPopup = new Alert(Alert.AlertType.ERROR);
-    		errorPopup.setContentText("Unable to update amount." + errorNum2 + "Please select food and try again");
+    		errorPopup.setContentText("Unable to update amount." + errorNum2.getMessage() + "Please select food and try again");
     		errorPopup.showAndWait();
     	}
     }
@@ -123,8 +125,21 @@ public class MainWindow {
     	}
     }
     
+    @FXML
+    void total(ActionEvent event) {
+    	try {
+    		int totalFoods = TotalFood.getTotalFood(this.pantryList.getItems());
+    		this.foodTotal.setText(Integer.toString(totalFoods));
+    	} catch (IllegalArgumentException invalidFoodError) {
+    		Alert errorPopup = new Alert(Alert.AlertType.ERROR);
+			errorPopup.setContentText("No food in pantry.");
+			errorPopup.showAndWait();
+    	}
+    }
+    
 	@FXML
 	void initialize() {
+        assert this.foodTotal != null : "fx:id=\"foodTotal\" was not injected: check your FXML file 'MainWindow.fxml'.";
 	    assert this.foodName != null : "fx:id=\"foodName\" was not injected: check your FXML file 'MainWindow.fxml'.";
 	    assert this.foodType != null : "fx:id=\"foodType\" was not injected: check your FXML file 'MainWindow.fxml'.";
 	    assert this.pantryList != null : "fx:id=\"pantryList\" was not injected: check your FXML file 'MainWindow.fxml'.";
