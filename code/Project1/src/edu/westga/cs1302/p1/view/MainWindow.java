@@ -111,6 +111,18 @@ public class MainWindow {
     	}
     }
 
+    @FXML
+    void removeFood(ActionEvent event) {
+    	FoodItem item = this.pantryList.getSelectionModel().getSelectedItem();
+    	if (item != null) {
+    		this.pantryList.getItems().remove(item);
+    	} else {
+    		Alert errorPopup = new Alert(Alert.AlertType.ERROR);
+			errorPopup.setContentText("No food selected. Unable to remove.");
+			errorPopup.showAndWait();
+    	}
+    }
+    
 	@FXML
 	void initialize() {
 	    assert this.foodName != null : "fx:id=\"foodName\" was not injected: check your FXML file 'MainWindow.fxml'.";
