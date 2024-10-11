@@ -1,0 +1,3 @@
+Alice
+pizza	2.5
+coke	1.75
