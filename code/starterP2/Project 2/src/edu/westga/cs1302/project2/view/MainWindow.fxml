@@ -21,6 +21,6 @@
       <Label layoutX="92.0" layoutY="120.0" text="Ingredients" />
       <Line endX="-412.0" endY="-133.0" layoutX="427.0" layoutY="245.0" startX="-200.0" startY="-133.0" />
       <Label layoutX="60.0" layoutY="81.0" text="Sort By" />
-      <ComboBox fx:id="sortBy" layoutX="105.0" layoutY="77.0" prefHeight="25.0" prefWidth="81.0" />
+      <ComboBox fx:id="sortBy" layoutX="105.0" layoutY="77.0" onAction="#changeOrder" prefHeight="25.0" prefWidth="81.0" />
    </children>
 </AnchorPane>

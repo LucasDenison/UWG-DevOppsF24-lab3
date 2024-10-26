@@ -1,6 +1,10 @@
 package edu.westga.cs1302.project2.view;
 
+import java.util.Comparator;
+
 import edu.westga.cs1302.project2.model.Ingredient;
+import edu.westga.cs1302.project2.model.TypeComparator;
+import edu.westga.cs1302.project2.model.NameComparator;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -18,7 +22,7 @@ public class MainWindow {
 	@FXML private ComboBox<String> ingredientType;
 	@FXML private ListView<Ingredient> ingredientsList;
 	@FXML private TextField ingredientName;
-	@FXML private ComboBox<?> sortBy;
+	@FXML private ComboBox<Comparator<Ingredient>> sortBy;
 
 	@FXML
 	void addIngredient(ActionEvent event) {
@@ -41,6 +45,11 @@ public class MainWindow {
 			this.ingredientsList.getItems().remove(selectedIngredient);
 		}
 	}
+	
+	@FXML
+	void changeOrder(ActionEvent event) {
+		this.ingredientsList.getItems().sort(this.sortBy.getValue());
+	}
 
 	@FXML
 	void initialize() {
@@ -49,6 +58,9 @@ public class MainWindow {
 		this.ingredientType.getItems().add("Bread");
 		this.ingredientType.getItems().add("Fruit");
 		this.ingredientType.getItems().add("Spice");
-
+		
+		this.sortBy.getItems().add(new TypeComparator());
+		this.sortBy.getItems().add(new NameComparator());
+		this.sortBy.setValue(this.sortBy.getItems().get(0));
 	}
 }
