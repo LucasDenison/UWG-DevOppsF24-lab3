@@ -1,3 +1,2 @@
-Alice
-pizza	2.5
-coke	1.75
+Trudy
+nuib,9.0
