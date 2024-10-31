@@ -1,10 +1,13 @@
 package edu.westga.cs1302.project2.view;
 
+import java.io.IOException;
 import java.util.Comparator;
 
 import edu.westga.cs1302.project2.model.Ingredient;
 import edu.westga.cs1302.project2.model.TypeComparator;
 import edu.westga.cs1302.project2.model.NameComparator;
+import edu.westga.cs1302.project2.model.Recipe;
+import edu.westga.cs1302.project2.model.RecipeSave;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -23,7 +26,7 @@ public class MainWindow {
 	@FXML private ListView<Ingredient> ingredientsList;
 	@FXML private TextField ingredientName;
 	@FXML private ComboBox<Comparator<Ingredient>> sortBy;
-	@FXML private ListView<?> ingredientsRecipeList;
+	@FXML private ListView<Ingredient> ingredientsRecipeList;
 	@FXML private TextField recipeName;
 
 	@FXML
@@ -55,12 +58,31 @@ public class MainWindow {
 
 	@FXML
     void addRecipe(ActionEvent event) {
-
+		try {
+			Recipe recipe = new Recipe(this.recipeName.getText());
+			for (int index = 0; index < this.ingredientsList.getItems().size(); index++) {
+				Ingredient currIngredient = this.ingredientsList.getItems().get(index);
+				recipe.addIngredient(currIngredient);
+			}
+			RecipeSave save = new RecipeSave();
+			save.saveRecipeData(recipe, "data.txt");
+		} catch (IOException error) {
+			Alert alert = new Alert(Alert.AlertType.ERROR);
+			alert.setContentText("Unable to save data to file!");
+			alert.showAndWait();
+		}
     }
 
     @FXML
     void addRecipeIngredient(ActionEvent event) {
-
+    	try {
+			this.ingredientsRecipeList.getItems().add(this.ingredientsList.getSelectionModel().getSelectedItem());
+		} catch (IllegalArgumentException error) {
+			Alert alert = new Alert(Alert.AlertType.ERROR);
+			alert.setHeaderText("Unable to add ingredient");
+			alert.setContentText(error.getMessage());
+			alert.showAndWait();
+		}
     }
 	
 	@FXML
