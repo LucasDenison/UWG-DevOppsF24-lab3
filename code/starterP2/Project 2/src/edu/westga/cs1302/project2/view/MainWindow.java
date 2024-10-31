@@ -23,6 +23,8 @@ public class MainWindow {
 	@FXML private ListView<Ingredient> ingredientsList;
 	@FXML private TextField ingredientName;
 	@FXML private ComboBox<Comparator<Ingredient>> sortBy;
+	@FXML private ListView<?> ingredientsRecipeList;
+	@FXML private TextField recipeName;
 
 	@FXML
 	void addIngredient(ActionEvent event) {
@@ -52,6 +54,16 @@ public class MainWindow {
 	}
 
 	@FXML
+    void addRecipe(ActionEvent event) {
+
+    }
+
+    @FXML
+    void addRecipeIngredient(ActionEvent event) {
+
+    }
+	
+	@FXML
 	void initialize() {
 		this.ingredientType.getItems().add("Vegetable");
 		this.ingredientType.getItems().add("Meat");
@@ -62,5 +74,7 @@ public class MainWindow {
 		this.sortBy.getItems().add(new TypeComparator());
 		this.sortBy.getItems().add(new NameComparator());
 		this.sortBy.setValue(this.sortBy.getItems().get(0));
+		assert this.ingredientsRecipeList != null : "fx:id=\"ingredientsRecipeList\" was not injected: check your FXML file 'MainWindow.fxml'.";
+        assert this.recipeName != null : "fx:id=\"recipeName\" was not injected: check your FXML file 'MainWindow.fxml'.";
 	}
 }
