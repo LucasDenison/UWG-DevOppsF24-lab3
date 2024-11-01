@@ -4,11 +4,12 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Line?>
 
-<AnchorPane minHeight="458.0" minWidth="600.0" prefHeight="642.0" prefWidth="651.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.westga.cs1302.project2.view.MainWindow">
+<AnchorPane minHeight="458.0" minWidth="481.0" prefHeight="642.0" prefWidth="481.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.westga.cs1302.project2.view.MainWindow">
    <children>
       <Button layoutX="205.0" layoutY="16.0" mnemonicParsing="false" onAction="#addIngredient" text="+" />
       <ComboBox fx:id="ingredientType" layoutX="119.0" layoutY="41.0" prefHeight="25.0" prefWidth="81.0" />
@@ -22,12 +23,14 @@
       <Line endX="-412.0" endY="-133.0" layoutX="427.0" layoutY="245.0" startX="-200.0" startY="-133.0" />
       <Label layoutX="60.0" layoutY="81.0" text="Sort By" />
       <ComboBox fx:id="sortBy" layoutX="105.0" layoutY="77.0" onAction="#changeOrder" prefHeight="25.0" prefWidth="81.0" />
-      <ListView fx:id="ingredientsRecipeList" layoutX="326.0" layoutY="182.0" prefHeight="446.0" prefWidth="216.0" />
-      <Label layoutX="385.0" layoutY="164.0" text="Recipe Ingredients" />
-      <Line endX="-412.0" endY="-133.0" layoutX="740.0" layoutY="245.0" startX="-200.0" startY="-133.0" />
-      <Button layoutX="361.0" layoutY="77.0" mnemonicParsing="false" onAction="#addRecipeIngredient" text="Add ingredient to recipe" />
-      <TextField fx:id="recipeName" layoutX="385.0" layoutY="138.0" prefHeight="25.0" prefWidth="98.0" />
-      <Label layoutX="399.0" layoutY="120.0" text="Recipe Name" />
-      <Button layoutX="375.0" layoutY="34.0" mnemonicParsing="false" onAction="#addRecipe" text="Add recipe to book" />
+      <ListView fx:id="ingredientsRecipeList" layoutX="252.0" layoutY="182.0" prefHeight="208.0" prefWidth="216.0" />
+      <Label layoutX="312.0" layoutY="164.0" text="Recipe Ingredients" />
+      <Line endX="-412.0" endY="-133.0" layoutX="667.0" layoutY="245.0" startX="-200.0" startY="-133.0" />
+      <Button layoutX="288.0" layoutY="77.0" mnemonicParsing="false" onAction="#addRecipeIngredient" text="Add ingredient to recipe" />
+      <TextField fx:id="recipeName" layoutX="312.0" layoutY="138.0" prefHeight="25.0" prefWidth="98.0" />
+      <Label layoutX="326.0" layoutY="120.0" text="Recipe Name" />
+      <Button layoutX="301.0" layoutY="41.0" mnemonicParsing="false" onAction="#addRecipe" text="Add recipe to book" />
+      <Button layoutX="314.0" layoutY="400.0" mnemonicParsing="false" onAction="#showRecipes" prefHeight="26.0" prefWidth="92.0" text="Show Recipes" />
+      <TextArea fx:id="recipesOfIng" layoutX="261.0" layoutY="426.0" prefHeight="200.0" prefWidth="200.0" />
    </children>
 </AnchorPane>
