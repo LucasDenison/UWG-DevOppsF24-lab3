@@ -13,6 +13,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 /**
@@ -28,6 +29,7 @@ public class MainWindow {
 	@FXML private ComboBox<Comparator<Ingredient>> sortBy;
 	@FXML private ListView<Ingredient> ingredientsRecipeList;
 	@FXML private TextField recipeName;
+	@FXML private TextArea recipesOfIng;
 
 	@FXML
 	void addIngredient(ActionEvent event) {
@@ -83,6 +85,11 @@ public class MainWindow {
 			alert.setContentText(error.getMessage());
 			alert.showAndWait();
 		}
+    }
+    
+    @FXML
+    void showRecipes(ActionEvent event) {
+
     }
 	
 	@FXML

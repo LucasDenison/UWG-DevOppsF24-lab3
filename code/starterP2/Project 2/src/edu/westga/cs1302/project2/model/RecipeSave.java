@@ -12,15 +12,13 @@ import java.util.Scanner;
  * @version Fall 2024
  */
 public class RecipeSave {
-
-	public static final String DATA_FILE = "data.txt";
 	
 	/**
 	 * Saves the recipe
 	 * 
 	 * Writes all data to data.txt
 	 * 
-	 * @precondition bill != null && file !=null && !(file.isEmpty()) 
+	 * @precondition recipe != null && file !=null && !(file.isEmpty()) 
 	 * @postcondition none
 	 * 
 	 * @param recipe the recipe to save
