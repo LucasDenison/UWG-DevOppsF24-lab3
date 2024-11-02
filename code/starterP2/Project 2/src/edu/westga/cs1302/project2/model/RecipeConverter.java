@@ -51,8 +51,14 @@ public class RecipeConverter {
 		String text = "";
 		for (Recipe recipe : recipes) {
 			if (recipe != null) {
-				text += recipe.getRecipeName() + System.lineSeparator() + System.lineSeparator();
+				text += recipe.getRecipeName() + System.lineSeparator();
 			}
+			for (Ingredient ingredient : recipe.getIngredients()) {
+				if (ingredient != null) {
+					text += ingredient.getName() + ", ";
+				}
+			}
+			text += System.lineSeparator() + System.lineSeparator();
 		}
 		return text;
 	}
