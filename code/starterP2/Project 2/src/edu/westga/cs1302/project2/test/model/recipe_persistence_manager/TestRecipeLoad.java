@@ -41,13 +41,13 @@ class TestRecipeLoad {
 	@Test
 	void testOneRecipeFile()throws IOException, FileNotFoundException {
 		try (FileWriter writer = new FileWriter("test.txt")) {
-			writer.write("name" + System.lineSeparator() + "apple" + System.lineSeparator() + System.lineSeparator());
+			writer.write("name" + System.lineSeparator() + "apple, " + System.lineSeparator() + System.lineSeparator());
 		}
 		RecipeLoad load = new RecipeLoad();
 		Recipe[] result = load.loadRecipeData("test.txt");
 		
 		assertEquals(1, result.length, "checking number of recipes loaded");
 		assertEquals("name", result[0].getRecipeName(), "checking name of recipe");
-		assertEquals("apple", result[1].getIngredients(), "checking ingredients in recipe");
+		assertEquals("apple, ", result[0].getIngredients(), "checking ingredients in recipe");
 	}
 }

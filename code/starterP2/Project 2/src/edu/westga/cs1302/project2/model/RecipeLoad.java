@@ -44,22 +44,26 @@ public class RecipeLoad {
 			for (int lineNumber = 1; reader.hasNextLine(); lineNumber++) {
 				String baseLine = reader.nextLine();
 				String strippedLine = baseLine.strip();
-				String[] parts = strippedLine.split(System.lineSeparator());
-				String[] subParts = strippedLine.split(", ");
+				String subLine = reader.nextLine();
+				String strippedSubLine = subLine.strip();
+				String[] subParts = strippedSubLine.split(", ");
 				try {
-					String name = parts[0];
+					String name = strippedLine;
 					Recipe recipe = new Recipe(name);
-					String ings = parts[1];
+					String ings = strippedSubLine;
 					for (int section = 0; section < ings.length(); section++) {
 						String currentIng = subParts[section];
 						Ingredient ingredient = new Ingredient(currentIng, " ");
 						recipe.addIngredient(ingredient);
-					}
+					} 
 					recipes.add(recipe);
 					RecipeConverter.convertRecipes(recipes);
-				} catch (IndexOutOfBoundsException studentDataError) {
+				} catch (IndexOutOfBoundsException recipeDataError) {
 					throw new IOException(
 							"Missing name on line " + lineNumber + " : " + strippedLine);
+				} catch (IllegalArgumentException recipeDataError) {
+					throw new IOException(
+							"Missing ingredients on line " + lineNumber + " : " + strippedSubLine);
 				}
 			}
 		}
