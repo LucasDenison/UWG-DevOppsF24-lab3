@@ -31,11 +31,11 @@ public class PasswordGeneratorViewModel {
 	public PasswordGeneratorViewModel() { 
 		Random randomNumberGenerator = new Random();
         this.generator = new PasswordGenerator(randomNumberGenerator.nextLong());
-		this.passwordProperty = new SimpleStringProperty("");
-		this.minProperty = new SimpleIntegerProperty(1);
-		this.oneDigitProperty = new SimpleBooleanProperty(false);
-		this.lowerCaseProperty = new SimpleBooleanProperty(false);
-		this.upperCaseProperty = new SimpleBooleanProperty(false);
+		this.passwordProperty = new SimpleStringProperty();
+		this.minProperty = new SimpleIntegerProperty();
+		this.oneDigitProperty = new SimpleBooleanProperty();
+		this.lowerCaseProperty = new SimpleBooleanProperty();
+		this.upperCaseProperty = new SimpleBooleanProperty();
 	}
 	
 	/**
@@ -91,23 +91,12 @@ public class PasswordGeneratorViewModel {
 	 * 
 	 */
 	public void generatePassword() {
-		int minNum = this.minProperty.getValue();
-		if (this.lowerCaseProperty.getValue().equals(true)) {
-			this.lowerCaseProperty.setValue(true);
-		} else {
-			this.lowerCaseProperty.setValue(false);
-		}
-		if (this.oneDigitProperty.getValue().equals(true)) {
-			this.oneDigitProperty.setValue(true);
-		} else {
-			this.oneDigitProperty.setValue(false);
-		}
-		
-		this.generator.setMinimumLength(minNum);
+		this.generator.setMinimumLength(this.minProperty.getValue());
 		this.generator.setMustHaveAtLeastOneDigit(this.oneDigitProperty.getValue());
 		this.generator.setMustHaveAtLeastOneLowerCaseLetter(this.lowerCaseProperty.getValue());
 		this.generator.setMustHaveAtLeastOneUpperCaseLetter(this.upperCaseProperty.getValue());
 		String password = this.generator.generatePassword();
 		this.passwordProperty.set(password);
 	}
+	
 }
