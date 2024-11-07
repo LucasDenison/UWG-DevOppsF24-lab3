@@ -95,6 +95,7 @@ public class PasswordGeneratorViewModel {
 		this.generator.setMustHaveAtLeastOneDigit(this.oneDigitProperty.getValue());
 		this.generator.setMustHaveAtLeastOneLowerCaseLetter(this.lowerCaseProperty.getValue());
 		this.generator.setMustHaveAtLeastOneUpperCaseLetter(this.upperCaseProperty.getValue());
+		
 		String password = this.generator.generatePassword();
 		this.passwordProperty.set(password);
 	}
