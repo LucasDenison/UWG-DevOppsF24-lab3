@@ -1,0 +1,536 @@
+commit 9606b763fb1970fceb6e0f1c611216a86f71ade1
+Author: Lucas <ldeniso1@my.westga.edu>
+Date:   Tue Nov 12 21:40:23 2024 -0500
+
+    added listview and testing
+    
+    replaced the output TextArea with a ListView in model and changes the ViewModel accordingly.
+    Also added test that I had previously forgot to add as well as new one for ViewModel.
+
+commit 3a61658a0e7a44cfc16649cb499bf9a32c0930c9
+Merge: 2dad12f fc1711c
+Author: LucasDenison <ldeniso1@my.westga.edu>
+Date:   Mon Nov 11 18:32:15 2024 -0500
+
+    Merge pull request #29 from LucasDenison/lab8-feature1
+    
+    implemented validation
+
+commit fc1711c02f3acbe8c91605936e0cb46c36432dc4
+Author: Lucas <ldeniso1@my.westga.edu>
+Date:   Mon Nov 11 18:29:39 2024 -0500
+
+    implemented validation
+    
+    implemented validation for each values in the viewModel and also added listeners to the view.
+    Added one regular expression to checking minimum length.
+
+commit 2dad12f68703c4feb272869687c819b53c50f4b4
+Merge: 79caa20 f7cd63f
+Author: LucasDenison <ldeniso1@my.westga.edu>
+Date:   Thu Nov 7 00:42:26 2024 -0500
+
+    Merge pull request #28 from LucasDenison/lab7-feature2
+    
+    bind view to viewModel
+
+commit f7cd63f7fe04290610bac7897a57e284db63f5af
+Author: Lucas <ldeniso1@my.westga.edu>
+Date:   Thu Nov 7 00:40:27 2024 -0500
+
+    bind view to viewModel
+    
+    tried to bind view to viewModel
+
+commit 79caa20fd3d7c9002f2e52a95be7c1ddd70bfb52
+Merge: 5efe86b a92152a
+Author: LucasDenison <ldeniso1@my.westga.edu>
+Date:   Wed Nov 6 16:51:27 2024 -0500
+
+    Merge pull request #27 from LucasDenison/lab7-feature1
+    
+    finished implementing viewModel
+
+commit a92152aebf79390aacbdb2bbe7f8fc5923379fbf
+Author: Lucas <ldeniso1@my.westga.edu>
+Date:   Wed Nov 6 16:49:04 2024 -0500
+
+    finished implementing viewModel
+    
+    created and finished Junit testing for the viewmodel
+
+commit 5efe86bfb35fc74c8d7da977f0cc44ac101989ca
+Merge: 493146d 5b2b07b
+Author: LucasDenison <ldeniso1@my.westga.edu>
+Date:   Tue Nov 5 20:47:17 2024 -0500
+
+    Merge pull request #26 from LucasDenison/lab7-feature1
+    
+    lab7 created viewmodel
+
+commit 5b2b07b8bb233d52e2679e931a27818d94a1add9
+Author: Lucas <ldeniso1@my.westga.edu>
+Date:   Tue Nov 5 20:45:59 2024 -0500
+
+    lab7 created viewmodel
+    
+    created a viewmodel for the mainWindow but have not tested it
+
+commit 493146daeebc6ef6dcab7ba4821ba19c5013fb5d
+Merge: 71603ff bd287bb
+Author: LucasDenison <ldeniso1@my.westga.edu>
+Date:   Mon Nov 4 02:25:00 2024 -0500
+
+    Merge pull request #25 from LucasDenison/project2-3B
+    
+    project2-3B part3
+
+commit bd287bb0d99de9ab4017c5718fde58f76940c02a
+Author: Lucas <ldeniso1@my.westga.edu>
+Date:   Mon Nov 4 02:21:53 2024 -0500
+
+    project2-3B part3
+    
+    I tried to add another way to read the next line but I just couldn't figure it out. Still didn't work with the test.
+
+commit 71603ff752dc57fecc534b7e71b014795f04d61d
+Merge: 8221479 850f126
+Author: LucasDenison <ldeniso1@my.westga.edu>
+Date:   Sat Nov 2 16:12:12 2024 -0400
+
+    Merge pull request #24 from LucasDenison/project2-3B
+    
+    Update project2-3b pt2
+
+commit 850f126f77206f354ec1a97a970bca5991ba6bcf
+Author: Lucas <ldeniso1@my.westga.edu>
+Date:   Sat Nov 2 16:09:08 2024 -0400
+
+    Update project2-3b pt2
+    
+    fixed last issue with testEmptyFile with loading recipes but ran into another problem with trying to testOneRecipeFile
+
+commit 8221479d72df8ecb783961a070a6c8677cbb3b4f
+Merge: 9ac357d 67d4f1d
+Author: LucasDenison <ldeniso1@my.westga.edu>
+Date:   Fri Nov 1 11:12:06 2024 -0400
+
+    Merge pull request #23 from LucasDenison/project2-3B
+    
+    update project2-3B recipe load
+
+commit 67d4f1d1556b2141e888c2ed8ba05d71218035ce
+Author: Lucas <ldeniso1@my.westga.edu>
+Date:   Fri Nov 1 11:08:52 2024 -0400
+
+    update project2-3B recipe load
+    
+    I only updated half of it so far to get help on it.
+    Created a static method in the utility class to convert a list of names to a string.
+    created a way to load a file of with names of recipes and test for it however it is broken and unfinished.
+
+commit 9ac357d64b11bba65c7c87da7536b32261a20893
+Merge: ee52958 4be22a6
+Author: LucasDenison <ldeniso1@my.westga.edu>
+Date:   Thu Oct 31 20:39:15 2024 -0400
+
+    Merge pull request #22 from LucasDenison/project2-3A
+    
+    project2-3A
+
+commit 4be22a692cd27b1b2db2717ebb407091d517ee5f
+Author: Lucas <ldeniso1@my.westga.edu>
+Date:   Thu Oct 31 20:32:48 2024 -0400
+
+    project2-3A
+    
+    created a button to display the recipes affilated with a chosen ingredient
+    created a new text area on the UI to display the recipes that are affilated with the chosen ingredient.
+
+commit ee52958eda1289e072765b864c6badd2652e86f9
+Merge: f3f1415 698a524
+Author: LucasDenison <ldeniso1@my.westga.edu>
+Date:   Thu Oct 31 18:19:52 2024 -0400
+
+    Merge pull request #21 from LucasDenison/project2-2C
+    
+    project2-2C connecting ui
+
+commit 698a5249a254bde4c2af95da89c8bf410d21ecee
+Author: Lucas <ldeniso1@my.westga.edu>
+Date:   Thu Oct 31 18:15:59 2024 -0400
+
+    project2-2C connecting ui
+    
+    added implementation for addRecipeIngredient to add an ingredient to the recipe
+    added implementation for addRecipe to add the recipe to a file named data.txt
+
+commit f3f1415cd1eea47ad999c7950b93112a1ca8f2ff
+Merge: 99e18ec 78d48ba
+Author: LucasDenison <ldeniso1@my.westga.edu>
+Date:   Thu Oct 31 17:27:45 2024 -0400
+
+    Merge pull request #20 from LucasDenison/project2-2B
+    
+    project2-2b recipe
+
+commit 78d48ba764d9d096ce59c205f2fdde877679a248
+Author: Lucas <ldeniso1@my.westga.edu>
+Date:   Thu Oct 31 17:19:26 2024 -0400
+
+    project2-2b recipe
+    
+    created a Recipe class that creates a list and adds an ingredient to the list. Also made test for it
+    created a RecipeConverter class to covert the recipe list to a string. Also created test for it
+    created a RecipeSave class to save the converted recipe to a document. Also created test for it
+
+commit 99e18eca788a56688b89164a35056ff01e36f46f
+Merge: 519d4cc 089f18a
+Author: LucasDenison <ldeniso1@my.westga.edu>
+Date:   Mon Oct 28 13:42:06 2024 -0400
+
+    Merge pull request #19 from LucasDenison/project2-2A
+    
+    Updated project2-2A
+
+commit 089f18a04b07679641512e279f009f85ffdfa40f
+Author: Lucas <ldeniso1@my.westga.edu>
+Date:   Mon Oct 28 13:39:21 2024 -0400
+
+    Updated project2-2A
+    
+    Added UI elelments to display ingredients in a recipe, to add ingredients to a recipe, to have a name for a recipe, and add the recipe to the recipe book.
+
+commit 519d4ccc8b1c91fb9b5252f8553cac91a3dfee9e
+Merge: 11bddbc 5e38faf
+Author: LucasDenison <ldeniso1@my.westga.edu>
+Date:   Fri Oct 25 21:35:40 2024 -0400
+
+    Merge pull request #18 from LucasDenison/project2-1C
+    
+    updated project2-1C
+
+commit 5e38fafe94c1880b47a635096469200274f5c716
+Author: Lucas <ldeniso1@my.westga.edu>
+Date:   Fri Oct 25 21:33:58 2024 -0400
+
+    updated project2-1C
+    
+    Connected UI to TypeComparator and NameComparator. Accidently Implemented toStrings in each Comparator in previous subtask.
+    Created new UI action to sort the ingredients in the ListView by name and type.
+
+commit 11bddbc72ea76ab5c07c4f6cbaba1d341a8791f7
+Merge: 952b6ca d2e78ce
+Author: LucasDenison <ldeniso1@my.westga.edu>
+Date:   Fri Oct 25 20:27:53 2024 -0400
+
+    Merge pull request #17 from LucasDenison/project2-1B
+    
+    Project2 1B - Comparators
+
+commit d2e78ce36de0f5626026a64c709d250aab6fe632
+Author: Lucas <ldeniso1@my.westga.edu>
+Date:   Fri Oct 25 20:23:56 2024 -0400
+
+    Project2 1B - Comparators
+    
+    Implemented TypeComparator and NameComparator and JUnit test for the both of them.
+    TypeComparator organizes ingredients by type and NameComparator organizes ingredients by name.
+
+commit 952b6cadffd9cb8d58fd2e99f75368094dad6922
+Merge: de4c551 a2b1f61
+Author: LucasDenison <ldeniso1@my.westga.edu>
+Date:   Fri Oct 25 04:46:48 2024 -0400
+
+    Merge pull request #16 from LucasDenison/project2-1A
+    
+    Project 1A - Updated UI
+
+commit a2b1f61f3e62ccfe46b69f0419509205f2e3acff
+Author: Lucas <ldeniso1@my.westga.edu>
+Date:   Fri Oct 25 04:42:48 2024 -0400
+
+    Project 1A - Updated UI
+    
+    Updated UI to have a combobox that is blank but will later sort ingredients by type and name.
+
+commit de4c551dcef64131087108f238dbdc46c0846714
+Merge: 55a8bcc 846fe7b
+Author: LucasDenison <ldeniso1@my.westga.edu>
+Date:   Tue Oct 15 14:19:19 2024 -0400
+
+    Merge pull request #15 from LucasDenison/lab6-Feature2-Update
+    
+    Ascending and descending
+
+commit 846fe7bbe3bf8efef83afde842bb01c995e44c8b
+Author: Lucas <ldeniso1@my.westga.edu>
+Date:   Tue Oct 15 14:02:29 2024 -0400
+
+    Ascending and descending
+    
+    added it so you can display the order of the items in the bill to ascending and descending price.
+    Added a combobox to choose which option. Added a method that sorts the items in the bill.
+
+commit 55a8bccec5d2ea87355b00b7ec44b4eb6846d1d5
+Merge: 98658eb 2dd973d
+Author: LucasDenison <ldeniso1@my.westga.edu>
+Date:   Thu Oct 10 21:39:33 2024 -0400
+
+    Merge pull request #14 from LucasDenison/lab6-Feature1-Update
+    
+    Support Mulitple formats
+
+commit 2dd973dd6fcebb6cceafd119f1945b837ec6513b
+Author: Lucas <ldeniso1@my.westga.edu>
+Date:   Thu Oct 10 21:35:39 2024 -0400
+
+    Support Mulitple formats
+    
+    Added a new combo box that selects what format you want the bill to be saved as.
+    Added child classes for BillPersistenceManager for CSV and TSV.
+
+commit 98658eb259aa4cc27d8898b33bca03480e9eaa3c
+Merge: 727ff74 286463a
+Author: LucasDenison <ldeniso1@my.westga.edu>
+Date:   Thu Oct 3 22:34:12 2024 -0400
+
+    Merge pull request #13 from LucasDenison/lab5-Feature2-Update
+    
+    Able to load data
+
+commit 286463ae158cb0f5cd4b8ed3c0d27cf4bde483ed
+Author: Lucas <ldeniso1@my.westga.edu>
+Date:   Thu Oct 3 22:29:43 2024 -0400
+
+    Able to load data
+    
+    Made a method in BillPersistenceManager that loads data from a file.
+    Made test for BillPersistenceManager.
+    Added a button that loads data from data.txt in bill and displays it on recieptArea.
+
+commit 727ff748e8f85bc45c82ceffb5ec53f096d23291
+Merge: cf02847 4c92119
+Author: LucasDenison <ldeniso1@my.westga.edu>
+Date:   Thu Oct 3 15:22:31 2024 -0400
+
+    Merge pull request #12 from LucasDenison/lab5-Feature1-Update
+    
+    Save data to bill
+
+commit 4c92119ad9deb5fd7a1ea5646b4f8b1b47541b9a
+Author: Lucas <ldeniso1@my.westga.edu>
+Date:   Thu Oct 3 15:19:20 2024 -0400
+
+    Save data to bill
+    
+    Implemented saveBillData to BillPersistenceManager and created JUnit test for it.
+    Added FXML saveBillData function to button.
+
+commit cf0284722c3a839e72086adf0401c528834ad25c
+Merge: 63e46fb 3ae8410
+Author: LucasDenison <ldeniso1@my.westga.edu>
+Date:   Wed Sep 25 13:51:32 2024 -0400
+
+    Merge pull request #11 from LucasDenison/feature5-Update
+    
+    Deleted useless class and test
+
+commit 3ae8410eccb8549a5ea4fda7d126318268f57c28
+Author: Lucas <ldeniso1@my.westga.edu>
+Date:   Wed Sep 25 13:49:00 2024 -0400
+
+    Deleted useless class and test
+    
+    deleted Pantry class and TestPantry because I realized it had no point
+    existing and was needless code
+
+commit 63e46fb12a63c3ac5ed70dc771f6b75f62a9e884
+Merge: 838e50e f481f21
+Author: LucasDenison <ldeniso1@my.westga.edu>
+Date:   Tue Sep 24 18:58:18 2024 -0400
+
+    Merge pull request #10 from LucasDenison/feature4-Update
+    
+    Total num of food
+
+commit f481f21e7b491650cb1944719667e0a6917c8797
+Author: Lucas <ldeniso1@my.westga.edu>
+Date:   Tue Sep 24 18:55:15 2024 -0400
+
+    Total num of food
+    
+    Made new class to calc the total number of food in a list: TotalFood
+    Made test to see if it worked: TestTotalFood
+    Made UI to get total num of food in the pantry
+
+commit 838e50e288d16a3d6499e1ba340700df9c7e035c
+Merge: b7d0622 dc8996c
+Author: LucasDenison <ldeniso1@my.westga.edu>
+Date:   Tue Sep 24 17:56:38 2024 -0400
+
+    Merge pull request #9 from LucasDenison/feature3-Update
+    
+    remove button
+
+commit dc8996c8a8f2356ec3e02030d83a4636ece155c0
+Author: Lucas <ldeniso1@my.westga.edu>
+Date:   Tue Sep 24 17:54:59 2024 -0400
+
+    remove button
+    
+    added a remove function to the UI and a button.
+    Used to remove a food from the pantry
+
+commit b7d0622c42eed3535d65a808fedaf22ff3283c9d
+Merge: db6aa32 382f3d4
+Author: LucasDenison <ldeniso1@my.westga.edu>
+Date:   Tue Sep 24 13:51:00 2024 -0400
+
+    Merge pull request #8 from LucasDenison/feature2-Update
+    
+    Updated quantity of food
+
+commit 382f3d45113b2c3da3f580ea2715472728fa0faf
+Author: Lucas <ldeniso1@my.westga.edu>
+Date:   Tue Sep 24 13:47:05 2024 -0400
+
+    Updated quantity of food
+    
+    Made a getQuantity, setQuantity, addQuantity, and subractQuantity to FoodItem.
+    Updated UI to have updateAmount textfield and buttons that setQuantity, getQuantity, and addQuantity.
+    Updated codebehind class to setQuantity, addQuantity, and subractQuantity of a selected item in a list.
+
+commit db6aa325adc93262ae3d71160cffa12526634787
+Merge: 3a27849 0cfbe2e
+Author: LucasDenison <ldeniso1@my.westga.edu>
+Date:   Sat Sep 21 14:57:38 2024 -0400
+
+    Merge pull request #7 from LucasDenison/feature1-Update
+    
+    Finished part one of the project
+
+commit 0cfbe2eb7316f88a8299d38ba75b77293ab6a8e1
+Author: Lucas <ldeniso1@my.westga.edu>
+Date:   Sat Sep 21 14:46:49 2024 -0400
+
+    Finished part one of the project
+    
+    Created project1. Inside the project I made packages for testing,
+    models, viewing the ui, and made class main. In model package, there is
+    class FoodItem that holds the info of one item, and Pantry which holds 5
+    items in an array. Test package has two packages for testing Fooditem and Pantry.
+    test/fooditem holds TestConstructor and TestSetQuantity. test/pantry holds
+    TestPantry. view package holds the codebehind class aka MainWindow and the FXML file.
+    All of this is used to make a UI that adds items to a pantry that has a type and a certain amount.
+
+commit 3a278492056dd5eda5f182b0cfe6ac822516b01b
+Merge: 6e7a0b4 28892ae
+Author: LucasDenison <ldeniso1@my.westga.edu>
+Date:   Tue Sep 17 21:37:35 2024 -0400
+
+    Merge pull request #6 from LucasDenison/feature-SetUp
+    
+    Set up
+
+commit 28892aec5414a2b3b68c0a9d0580e0c14784bc17
+Author: Lucas <ldeniso1@my.westga.edu>
+Date:   Tue Sep 17 21:35:29 2024 -0400
+
+    Set up
+    
+    Set up the project
+
+commit 6e7a0b484eff68fbe023992dc75973a153a6c3c0
+Merge: 0dae2bf a058c18
+Author: LucasDenison <ldeniso1@my.westga.edu>
+Date:   Thu Sep 12 20:55:05 2024 -0400
+
+    Merge pull request #5 from LucasDenison/Lab4-feature2-Update
+    
+    Finished feature2.
+
+commit a058c183f0a21f077dc7e3250a6ded25fa2eb123
+Author: Lucas <ldeniso1@my.westga.edu>
+Date:   Thu Sep 12 20:49:43 2024 -0400
+
+    Finished feature2. Added code to BillCalculator,
+    test/model/bill_calculator/, and edited BillTextifier
+
+commit 0dae2bf7508cb3dbe6fe411228c81764f9218000
+Merge: 0972c51 e496a21
+Author: LucasDenison <ldeniso1@my.westga.edu>
+Date:   Thu Sep 12 16:17:35 2024 -0400
+
+    Merge pull request #4 from LucasDenison/Lab4-feature1-Update
+    
+    Made the fields in BillItem final
+
+commit e496a21a6b13671deb9ece94ec590735266f9986
+Author: Lucas <ldeniso1@my.westga.edu>
+Date:   Thu Sep 12 16:15:59 2024 -0400
+
+    made the fields in BillItem final
+
+commit 0972c518b8f38e6d9a8d3b4e88581d7e8e9ad20a
+Author: LucasDenison <ldeniso1@my.westga.edu>
+Date:   Thu Sep 12 16:03:13 2024 -0400
+
+    Update README.md
+
+commit 6ce5188db88b673c9d05c5fe1817903af9a34f58
+Author: Lucas <ldeniso1@my.westga.edu>
+Date:   Thu Sep 12 16:01:39 2024 -0400
+
+    added BillSystem to repo
+
+commit 57ae389355291535f9c5750d5a5df0b47b5de734
+Merge: d96f283 e881fe1
+Author: LucasDenison <ldeniso1@my.westga.edu>
+Date:   Wed Sep 11 19:24:29 2024 -0400
+
+    Merge pull request #3 from LucasDenison/feature2-Update
+    
+    Almost finished all of feature2. Need to fix UI issue
+
+commit e881fe1df4f50fa0540898e083e1db63a1d5b080
+Author: Lucas <ldeniso1@my.westga.edu>
+Date:   Wed Sep 11 19:20:41 2024 -0400
+
+    Almost finished all of feature2. Need to fix UI issue
+
+commit d96f2838c91c0a87e3469fbdf52983951d2e79ce
+Merge: 1f5cb3d 6e57caa
+Author: LucasDenison <ldeniso1@my.westga.edu>
+Date:   Tue Sep 10 17:17:35 2024 -0400
+
+    Merge pull request #2 from LucasDenison/feature-Update-2
+    
+    Finished freature 1.
+
+commit 6e57caac6982296fdfd1f609bd2d1c26ce9abcf8
+Author: Lucas <ldeniso1@my.westga.edu>
+Date:   Tue Sep 10 17:12:55 2024 -0400
+
+    Finished freature 1. Added remove function and a funtion to view grade
+
+commit 1f5cb3dfea7ef5ff7e7c93fc6adcd7d14e16199a
+Merge: 0a3ed52 59c8107
+Author: LucasDenison <ldeniso1@my.westga.edu>
+Date:   Sun Sep 8 14:41:20 2024 -0400
+
+    Merge pull request #1 from LucasDenison/feature-Update
+    
+    Editted multiple parts for feature 1
+
+commit 59c810777a2eaeb1ec70f47697136fafe309d4e1
+Author: Lucas <ldeniso1@my.westga.edu>
+Date:   Sun Sep 8 14:34:28 2024 -0400
+
+    Changed UI, TestConstructor, Student Class, and add student method inside MainWindow
+
+commit 0a3ed5279e8696f5d9d3bacf4ac598b2459a5fba
+Author: LucasDenison <ldeniso1@my.westga.edu>
+Date:   Sun Sep 8 12:41:51 2024 -0400
+
+    Initial commit
