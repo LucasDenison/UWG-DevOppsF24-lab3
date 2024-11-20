@@ -1,12 +1,10 @@
 package edu.westga.cs1302.password_generator.view;
 
-import java.util.Optional;
-
 import edu.westga.cs1302.password_generator.viewmodel.ViewModel;
+import javafx.beans.binding.BooleanBinding;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
@@ -47,6 +45,7 @@ public class MainWindow {
     	
     	this.output.textProperty().bind(this.vm.getPassword());
     	this.errorTextLabel.textProperty().bind(this.vm.getErrorText());
+    	this.setupEnablingOfControls();
     	
     	this.generatePasswordButton.setOnAction(
     			(event) -> { 
@@ -78,4 +77,13 @@ public class MainWindow {
 				+ "Purpose: To create a password based off the critea selected.");
 		alert.showAndWait();
     }
+    
+    private void setupEnablingOfControls() {
+    	BooleanBinding lengthFieldEmpty = this.minimumLength.textProperty().isEmpty();
+    	this.generatePasswordButton.disableProperty().bind(lengthFieldEmpty);
+    	
+    	BooleanBinding lengthFieldInvalid = this.minimumLength.textProperty().lessThan("1");
+    	this.generatePasswordButton.disableProperty().bind(lengthFieldInvalid);
+    }
+    
 }
