@@ -19,6 +19,15 @@ public class TaskManager {
 	}
 	
 	/**
+	 * gets the task in the task manager
+	 * 
+	 * @return task in the task manager
+	 */
+	public ArrayList<Task> getTasks() {
+		return this.taskManager;
+	}
+	
+	/**
 	 * Adds the task to the task manager
 	 * 
 	 * @precondition task != null
