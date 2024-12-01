@@ -49,14 +49,15 @@ public class TasksDataPersistenceManager {
 	 * @precondition none
 	 * @postcondition none
 	 * 
+	 * @param file the file to be loaded from
 	 * @return the set of tasks loaded
-	 * @throws FileNotFoundException file at DATA_FILE location does not exist
+	 * @throws FileNotFoundException file location does not exist
 	 * @throws IOException           invalid or missing title/description found when trying
 	 *                               to create a task
 	 */
-	public TaskManager loadTaskData() throws FileNotFoundException, IOException {
+	public TaskManager loadTaskData(String file) throws FileNotFoundException, IOException {
 		TaskManager tasks = new TaskManager();
-		File inputFile = new File(DATA_FILE);
+		File inputFile = new File(file);
 		try (Scanner reader = new Scanner(inputFile)) {
 			for (int lineNumber = 1; reader.hasNextLine(); lineNumber++) {
 				String baseLine = reader.nextLine();
