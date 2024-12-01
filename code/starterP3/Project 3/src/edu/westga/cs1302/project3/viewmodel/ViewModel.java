@@ -1,12 +1,18 @@
 package edu.westga.cs1302.project3.viewmodel;
 
 import edu.westga.cs1302.project3.model.TaskManager;
+import edu.westga.cs1302.project3.model.TasksDataPersistenceManager;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import edu.westga.cs1302.project3.model.Task;
 import javafx.beans.property.ListProperty;
+import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleListProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
@@ -21,6 +27,8 @@ public class ViewModel {
 	private StringProperty description;
 	private ListProperty<Task> tasks;
 	private TaskManager taskManager;
+	private ObjectProperty<File> selectedFile;
+	private StringProperty fileName;
 	
 	/** Initialize the properties for the viewmodel
 	 */
@@ -29,6 +37,8 @@ public class ViewModel {
 		this.description = new SimpleStringProperty("");
 		this.tasks = new SimpleListProperty<Task>(FXCollections.observableArrayList(new ArrayList<Task>()));
 		this.taskManager = new TaskManager();
+		this.fileName = new SimpleStringProperty("");
+		this.selectedFile = new SimpleObjectProperty<File>(null);
 	}
 	
 	/**returns the title of the task
@@ -56,6 +66,22 @@ public class ViewModel {
 		return this.tasks;
 	}
 	
+	/**returns the selected file
+	 * 
+	 * @return the selected file
+	 */
+	public ObjectProperty getSelectedFile() {
+		return this.selectedFile;
+	}
+	
+	/**returns the name of the selected file
+	 * 
+	 * @return the name of the selected file
+	 */
+	public StringProperty getFileName() {
+		return this.fileName;
+	}
+	
 	/** projects investment given the current inputs
 	 * 
 	 * @precondition none
@@ -79,5 +105,20 @@ public class ViewModel {
 		Task task0 = new Task(this.title.getValue(), this.description.getValue());
 
 		return task0;
+	}
+	
+	public void loadTasks() {
+		TasksDataPersistenceManager load = new TasksDataPersistenceManager();
+		File file = this.selectedFile.getValue();
+		String name = file.getName();
+		try {
+			load.loadTaskData(name);
+		} catch (FileNotFoundException e) {
+			throw new IllegalArgumentException("Could not find file");
+		} catch (IOException e) {
+			throw new NullPointerException("could not load file due to missing elements");
+		}
+		
+		
 	}
 }

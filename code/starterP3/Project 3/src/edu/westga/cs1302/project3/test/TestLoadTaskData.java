@@ -20,7 +20,7 @@ class TestLoadTaskData {
 		
 		TaskManager tasks = new TaskManager();
 		TasksDataPersistenceManager load = new TasksDataPersistenceManager();
-		tasks = load.loadTaskData();
+		tasks = load.loadTaskData(TasksDataPersistenceManager.DATA_FILE);
 		assertEquals(tasks.size(), 0);
 	}
 
@@ -32,7 +32,7 @@ class TestLoadTaskData {
 		
 		TaskManager tasks = new TaskManager();
 		TasksDataPersistenceManager load = new TasksDataPersistenceManager();
-		tasks = load.loadTaskData();
+		tasks = load.loadTaskData(TasksDataPersistenceManager.DATA_FILE);
 		assertEquals(tasks.size(), 1);
 		assertEquals(tasks.getTasks().get(0).getTitle(), "Spongebob");
 		assertEquals(tasks.getTasks().get(0).getDescription(), "Squarepants");
@@ -47,7 +47,7 @@ class TestLoadTaskData {
 		
 		TaskManager tasks = new TaskManager();
 		TasksDataPersistenceManager load = new TasksDataPersistenceManager();
-		tasks = load.loadTaskData();
+		tasks = load.loadTaskData(TasksDataPersistenceManager.DATA_FILE);
 		assertEquals(tasks.size(), 2);
 		assertEquals(tasks.getTasks().get(0).getTitle(), "Spongebob");
 		assertEquals(tasks.getTasks().get(0).getDescription(), "Squarepants");
@@ -65,7 +65,7 @@ class TestLoadTaskData {
 		assertThrows(IOException.class, ()->{
 			TaskManager tasks = new TaskManager();
 			TasksDataPersistenceManager load = new TasksDataPersistenceManager();
-			tasks = load.loadTaskData();
+			tasks = load.loadTaskData(TasksDataPersistenceManager.DATA_FILE);
 		});
 	}
 }
