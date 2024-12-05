@@ -37,6 +37,7 @@ public class MainWindow {
 	    @FXML
 	    void initialize() {
 	    	this.vm = new ViewModel();
+	    	this.tasks.setItems(this.vm.getDefaultTasks());
 	    	this.tasks.setItems(this.vm.getTasks());
 	    	
 	    	this.closeFileMenuItem.setOnAction(
@@ -77,8 +78,25 @@ public class MainWindow {
 	    	new ExtensionFilter("Text Files", "*.txt"), new ExtensionFilter("All Files", "*.*"));
 	    	File selectedFile = fileChooser.showOpenDialog(null);
 	    	if (selectedFile != null) {
-	    		this.vm.getSelectedFile().bind((ObservableValue) selectedFile);
-	    		this.tasks.setItems(this.vm.getTasks());
+	    		this.vm.loadTasks(selectedFile);
+	    	}
+	    	if (!"*.txt".equals(selectedFile.getName())) {
+	    		Alert alert = new Alert(Alert.AlertType.ERROR);
+		    	Window owner = this.guiPane.getScene().getWindow();
+				alert.initOwner(owner);
+				alert.setTitle("Error");
+				alert.setHeaderText("Cannot Load Data");
+				alert.setContentText("This file cannot be loaded. Can only accept .txt files.");
+				alert.showAndWait();
+	    	} 
+	    	if (selectedFile.getTotalSpace() == 0) {
+	    		Alert alert = new Alert(Alert.AlertType.ERROR);
+		    	Window owner = this.guiPane.getScene().getWindow();
+				alert.initOwner(owner);
+				alert.setTitle("Error");
+				alert.setHeaderText("Cannot Load Data");
+				alert.setContentText("This file cannot be loaded. File is Empty.");
+				alert.showAndWait();
 	    	}
 	    }
 }

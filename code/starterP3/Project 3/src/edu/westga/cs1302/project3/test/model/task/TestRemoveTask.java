@@ -1,4 +1,4 @@
-package edu.westga.cs1302.project3.test;
+package edu.westga.cs1302.project3.test.model.task;
 
 import static org.junit.jupiter.api.Assertions.*;
 
