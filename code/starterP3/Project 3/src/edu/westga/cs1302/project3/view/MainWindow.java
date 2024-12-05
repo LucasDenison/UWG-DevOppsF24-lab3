@@ -2,9 +2,7 @@ package edu.westga.cs1302.project3.view;
 
 import java.io.File;
 
-import edu.westga.cs1302.project3.model.Task;
 import edu.westga.cs1302.project3.viewmodel.ViewModel;
-import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.MenuItem;
@@ -74,13 +72,14 @@ public class MainWindow {
 	    private void chooseFile() {
 	    	FileChooser fileChooser = new FileChooser();
 	    	fileChooser.setTitle("Choose Text File");
-	    	fileChooser.getExtensionFilters().addAll(
-	    	new ExtensionFilter("Text Files", "*.txt"), new ExtensionFilter("All Files", "*.*"));
+	    	ExtensionFilter filter1 = new ExtensionFilter("Text Files", "*.txt");
+	    	fileChooser.getExtensionFilters().addAll(filter1, new ExtensionFilter("All Files", "*.*"));
 	    	File selectedFile = fileChooser.showOpenDialog(null);
+	    	
 	    	if (selectedFile != null) {
 	    		this.vm.loadTasks(selectedFile);
 	    	}
-	    	if (!"*.txt".equals(selectedFile.getName())) {
+	    	if (!selectedFile.getAbsoluteFile().getName().equals("*.txt")) {
 	    		Alert alert = new Alert(Alert.AlertType.ERROR);
 		    	Window owner = this.guiPane.getScene().getWindow();
 				alert.initOwner(owner);
