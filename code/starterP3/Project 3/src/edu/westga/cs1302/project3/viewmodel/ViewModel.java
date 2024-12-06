@@ -158,4 +158,17 @@ public class ViewModel {
 		}
 		
 	}
+	
+	/**
+	 * adds a task to the task list in mainWindow
+	 * 
+	 * @param title title of the task
+	 * @param desc description of the task
+	 */
+	public void addTask(String title, String desc) {
+		this.title.setValue(title);
+		this.description.setValue(desc);
+		Task task = new Task(title, desc);
+		this.tasks.add(task);
+	}
 }
