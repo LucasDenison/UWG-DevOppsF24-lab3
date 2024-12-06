@@ -7,6 +7,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 import edu.westga.cs1302.project3.model.Task;
 import javafx.beans.property.ListProperty;
@@ -38,7 +39,7 @@ public class ViewModel {
 		this.tasks = new SimpleListProperty<Task>(FXCollections.observableArrayList(new ArrayList<Task>()));
 		this.taskManager = new TaskManager();
 		this.fileName = new SimpleStringProperty("");
-		this.selectedFile = new SimpleObjectProperty<File>(null);
+		this.selectedFile = new SimpleObjectProperty<File>();
 	}
 	
 	/**returns the title of the task
@@ -66,6 +67,15 @@ public class ViewModel {
 		return this.tasks;
 	}
 	
+	/**returns the tasks
+	 * 
+	 * @return the tasks
+	 */
+	public ListProperty getDefaultTasks() {
+		this.defaultTasks();
+		return this.tasks;
+	}
+	
 	/**returns the selected file
 	 * 
 	 * @return the selected file
@@ -90,35 +100,62 @@ public class ViewModel {
 	 * @throws IllegalArgumentException if capital, interest rate, or years is invalid value
 	 */
 	public void projectTasks() throws IllegalArgumentException {
-		Task task = this.createTasks();
-		
+		Task task = this.defaultTasks();
 		this.tasks.getValue().add(task);
+		this.taskManager.addTask(task);
 	}
 	
-	/**creates the tasks for the MainWindow
+	/**creates the default tasks for the MainWindow
 	 * 
 	 * @return task0 the task created
 	 */
-	private Task createTasks() {
+	private Task defaultTasks() {
 		this.title.setValue("Title of task");
 		this.description.setValue("Desc");
 		Task task0 = new Task(this.title.getValue(), this.description.getValue());
-
 		return task0;
 	}
 	
-	public void loadTasks() {
+	/**loads tasks from a selected File 
+	 * 
+	 * @param selectedFile the file selected from the file chooser.
+	 */
+	public void loadTasks(File selectedFile) {
 		TasksDataPersistenceManager load = new TasksDataPersistenceManager();
-		File file = this.selectedFile.getValue();
-		String name = file.getName();
+		this.selectedFile.setValue(selectedFile);
 		try {
-			load.loadTaskData(name);
-		} catch (FileNotFoundException e) {
+			TaskManager tasks = load.loadTaskData(this.selectedFile.getValue().getAbsolutePath());
+			this.getSelectedFile();
+			this.tasks.getValue().addAll(tasks.getTasks());
+			for (int index = 0; index > tasks.size(); index++) {
+				Task currTask = tasks.getTasks().get(index);
+				this.taskManager.addTask(currTask);
+			}
+		} catch (FileNotFoundException error) {
 			throw new IllegalArgumentException("Could not find file");
-		} catch (IOException e) {
+		} catch (IOException error) {
 			throw new NullPointerException("could not load file due to missing elements");
 		}
 		
+	}
+	
+	/**saves tasks to a selected File 
+	 * 
+	 * @param chosenFile the file selected from the file chooser.
+	 * @param tasks the tasks to be saved to file chosen.
+	 */
+	public void saveTasks(File chosenFile, List tasks) {
+		TasksDataPersistenceManager save = new TasksDataPersistenceManager();
+		this.selectedFile.setValue(chosenFile);
+		this.taskManager.getTasks().addAll(tasks);
+		this.taskManager.removeTask(this.taskManager.getTasks().get(0));
+		try {
+			save.saveTaskData(this.taskManager, this.selectedFile.getValue().getAbsolutePath());
+		} catch (FileNotFoundException error) {
+			throw new IllegalArgumentException("Could not find file");
+		} catch (IOException error) {
+			throw new NullPointerException("could not load file due to missing elements");
+		}
 		
 	}
 }
