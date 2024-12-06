@@ -4,7 +4,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import edu.westga.cs1302.project3.model.TaskManager;
 import edu.westga.cs1302.project3.viewmodel.ViewModel;
 
 class TestAddTaskVM {
@@ -49,5 +48,24 @@ class TestAddTaskVM {
 	void testValidTask() {
 		ViewModel vm = new ViewModel();
 		vm.addTask("Dart Monkey", "Funny bloon game");
+		assertEquals(vm.getTasks().getSize(), 2, "it's two because of the default task adds 1");
+	}
+	
+	@Test
+	void testMultValidTasks() {
+		ViewModel vm = new ViewModel();
+		vm.addTask("Dart Monkey", "Funny bloon game");
+		vm.addTask("WizardMokey", "FireBall");
+		assertEquals(vm.getTasks().getSize(), 3, "it's 3 because of the default task adds 1");
+	}
+	
+	@Test
+	void testMultValidTasksRepeat() {
+		assertThrows(IllegalArgumentException.class, () ->{
+			ViewModel vm = new ViewModel();
+			vm.addTask("Dart Monkey", "Funny bloon game");
+			vm.addTask("Dart Monkey", "FireBall");
+			}
+		);
 	}
 }

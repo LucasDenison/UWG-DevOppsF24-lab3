@@ -1,6 +1,8 @@
 package edu.westga.cs1302.project3.model;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Creates a list that contains multiple task
@@ -10,12 +12,14 @@ import java.util.ArrayList;
  */
 public class TaskManager {
 	private ArrayList<Task> taskManager;
+	private Map<String, String> lookupTable;
 	
 	/**
 	 * Creates a new empty TaskManager
 	 */
 	public TaskManager() {
 		this.taskManager = new ArrayList<Task>();
+		this.lookupTable = new HashMap<String, String>();
 	}
 	
 	/**
@@ -39,6 +43,10 @@ public class TaskManager {
 		if (task == null) {
 			throw new IllegalArgumentException("task cannot be null");
 		}
+		if (this.lookupTable.containsKey(task.getTitle())) {
+			throw new IllegalArgumentException("Cannot have repeating Task titles");
+		}
+		this.lookupTable.put(task.getTitle(), task.getDescription());
 		this.taskManager.add(task);
 	}
 	

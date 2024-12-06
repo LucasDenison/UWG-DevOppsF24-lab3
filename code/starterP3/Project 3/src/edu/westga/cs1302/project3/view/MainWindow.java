@@ -44,7 +44,6 @@ public class MainWindow {
 	    @FXML
 	    private Button removeTaskButton;
 	    
-	    
 	    private ViewModel vm;
 	    
 	    @FXML
@@ -131,15 +130,6 @@ public class MainWindow {
 	    	if (selectedFile != null) {
 	    		this.vm.loadTasks(selectedFile);
 	    	}
-//	    	if (selectedFile) {
-//	    		Alert alert = new Alert(Alert.AlertType.ERROR);
-//		    	Window owner = this.guiPane.getScene().getWindow();
-//				alert.initOwner(owner);
-//				alert.setTitle("Error");
-//				alert.setHeaderText("Cannot Load Data");
-//				alert.setContentText("This file cannot be loaded. Missing components");
-//				alert.showAndWait();
-//	    	} 
 	    	if (selectedFile.getTotalSpace() == 0) {
 	    		Alert alert = new Alert(Alert.AlertType.ERROR);
 		    	Window owner = this.guiPane.getScene().getWindow();

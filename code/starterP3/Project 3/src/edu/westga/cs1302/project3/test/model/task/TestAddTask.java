@@ -15,6 +15,19 @@ class TestAddTask {
 		
 		assertThrows(IllegalArgumentException.class, ()->{taskManager.addTask(null);});
 	}
+	
+	@Test
+	void testAddRepeatedTasks() {
+		assertThrows(IllegalArgumentException.class, ()->{
+			TaskManager taskManager = new TaskManager();
+			Task task = new Task("2:35", "AM");
+			Task task1 = new Task("2:35", "AM"); 
+			
+			taskManager.addTask(task);
+			taskManager.addTask(task1);
+			}
+		);
+	}
 
 	@Test
 	void testAddOneTask() {
