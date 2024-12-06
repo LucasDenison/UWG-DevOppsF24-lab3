@@ -157,6 +157,10 @@ public class MainWindow {
 				setPropertyStage.setScene(scene);
 				setPropertyStage.initModality(Modality.APPLICATION_MODAL);
 				setPropertyStage.showAndWait();
+				
+				AddTaskWindow addTaskWin = (AddTaskWindow) loader.getController();
+				addTaskWin.bindToVM(this.vm);
+				
 			} catch (IOException error) {
 				Alert alert = new Alert(AlertType.ERROR);
 				alert.setContentText("Unable to load properties window.");
