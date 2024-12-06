@@ -179,6 +179,7 @@ public class ViewModel {
 		this.title.setValue(title);
 		this.description.setValue(desc);
 		Task task = new Task(title, desc);
+		this.taskManager.addTask(task);
 		this.tasks.add(task);
 	}
 	

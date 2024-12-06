@@ -82,7 +82,7 @@ public class AddTaskWindow {
 			alert.setHeaderText("Cannot Add Task");
 			alert.setContentText("Description is Empty");
 			alert.showAndWait();
-		}
+		} 
 		vm.addTask(this.title.getText(), this.description.getText());
 	}
 	

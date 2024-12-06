@@ -4,8 +4,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import edu.westga.cs1302.project3.model.Task;
-import edu.westga.cs1302.project3.model.TaskManager;
 import edu.westga.cs1302.project3.viewmodel.ViewModel;
 
 class TestRemoveTaskVM {
