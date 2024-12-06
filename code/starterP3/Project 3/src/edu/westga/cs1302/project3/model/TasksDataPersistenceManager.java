@@ -13,7 +13,7 @@ import java.util.Scanner;
  * @version Fall 2024
  */
 public class TasksDataPersistenceManager {
-	public static final String DATA_FILE = "data.txt";
+	public static final String DATA_FILE = "data.CS1302";
 	
 	/**
 	 * Saves the tasks
@@ -25,13 +25,17 @@ public class TasksDataPersistenceManager {
 	 * @postcondition none
 	 * 
 	 * @param tasks the set of tasks to save
+	 * @param file the file that will be saved to
 	 * @throws IOException
 	 */
-	public void saveTaskData(TaskManager tasks) throws IOException {
+	public void saveTaskData(TaskManager tasks, String file) throws IOException {
 		if (tasks == null) {
 			throw new IllegalArgumentException("Must provide a valid list tasks");
 		}
-		try (FileWriter writer = new FileWriter(DATA_FILE)) {
+		if (file == null) {
+			throw new NullPointerException("File cannot be null");
+		}
+		try (FileWriter writer = new FileWriter(file)) {
 			for (Task currTask : tasks.getTasks()) {
 				if (currTask != null) {
 					writer.write(currTask.getTitle() + ": " + currTask.getDescription() + System.lineSeparator());
@@ -56,6 +60,9 @@ public class TasksDataPersistenceManager {
 	 *                               to create a task
 	 */
 	public TaskManager loadTaskData(String file) throws FileNotFoundException, IOException {
+		if (file == null) {
+			throw new NullPointerException("File cannot be null");
+		}
 		TaskManager tasks = new TaskManager();
 		File inputFile = new File(file);
 		try (Scanner reader = new Scanner(inputFile)) {

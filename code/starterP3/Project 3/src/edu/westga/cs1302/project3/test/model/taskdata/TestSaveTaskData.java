@@ -18,14 +18,22 @@ class TestSaveTaskData {
 	void testNullTasks() {
 		assertThrows(IllegalArgumentException.class, ()->{
 			TasksDataPersistenceManager saveData =  new TasksDataPersistenceManager();
-			saveData.saveTaskData(null);
+			saveData.saveTaskData(null, TasksDataPersistenceManager.DATA_FILE);
+		});
+	}
+	
+	@Test
+	void testNullFile() {
+		assertThrows(NullPointerException.class, ()->{
+			TasksDataPersistenceManager saveData =  new TasksDataPersistenceManager();
+			saveData.saveTaskData(new TaskManager(), null);
 		});
 	}
 
 	@Test
 	void testNoTasks() throws IOException {
 		TasksDataPersistenceManager saveData =  new TasksDataPersistenceManager();
-		saveData.saveTaskData(new TaskManager());
+		saveData.saveTaskData(new TaskManager(), TasksDataPersistenceManager.DATA_FILE);
 		
 		File inputFile = new File(TasksDataPersistenceManager.DATA_FILE);
 		try (Scanner reader = new Scanner(inputFile)) {
@@ -39,7 +47,7 @@ class TestSaveTaskData {
 		Task task = new Task("scout tf2","grass grows, birds fly, and brotha, I'm a force-a-nature.");
 		tasks.addTask(task);
 		TasksDataPersistenceManager saveData = new TasksDataPersistenceManager();
-		saveData.saveTaskData(tasks);
+		saveData.saveTaskData(tasks, TasksDataPersistenceManager.DATA_FILE);
 		
 		File inputFile = new File(TasksDataPersistenceManager.DATA_FILE);
 		try (Scanner reader = new Scanner(inputFile)) {
@@ -56,7 +64,7 @@ class TestSaveTaskData {
 		tasks.addTask(task);
 		tasks.addTask(task2);
 		TasksDataPersistenceManager saveData =  new TasksDataPersistenceManager();
-		saveData.saveTaskData(tasks);
+		saveData.saveTaskData(tasks, TasksDataPersistenceManager.DATA_FILE);
 		
 		File inputFile = new File(TasksDataPersistenceManager.DATA_FILE);
 		try (Scanner reader = new Scanner(inputFile)) {

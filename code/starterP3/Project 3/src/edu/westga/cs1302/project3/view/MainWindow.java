@@ -29,6 +29,8 @@ public class MainWindow {
 	    private AnchorPane guiPane;
 	    @FXML
 	    private MenuItem loadMenuItem;
+	    @FXML
+	    private MenuItem saveMenuItem;
 	    
 	    private ViewModel vm;
 	    
@@ -53,8 +55,14 @@ public class MainWindow {
 	    	
 	    	this.loadMenuItem.setOnAction(
 	    			(event) -> {
-	    				this.chooseFile();
+	    				this.loadFile();
 	    		}
+	    	);
+	    	
+	    	this.saveMenuItem.setOnAction(
+	    			(event) -> {
+	    				this.saveFile();
+	    			}
 	    	);
 	    }
 	    
@@ -69,25 +77,45 @@ public class MainWindow {
 			alert.showAndWait();
 	    }
 	    
-	    private void chooseFile() {
+	    private void saveFile() {
 	    	FileChooser fileChooser = new FileChooser();
-	    	fileChooser.setTitle("Choose Text File");
-	    	ExtensionFilter filter1 = new ExtensionFilter("Text Files", "*.txt");
-	    	fileChooser.getExtensionFilters().addAll(filter1, new ExtensionFilter("All Files", "*.*"));
+	    	fileChooser.setTitle("Choose CS1302 File");
+	    	ExtensionFilter filter1 = new ExtensionFilter("CS1302 Files", "*.CS1302");
+	    	fileChooser.getExtensionFilters().addAll(filter1);
+	    	File selectedFile = fileChooser.showOpenDialog(null);
+	    	if (selectedFile != null) {
+	    		this.vm.saveTasks(selectedFile, this.tasks.getItems());
+	    	}
+	    	if (!selectedFile.canWrite()) {
+	    		Alert alert = new Alert(Alert.AlertType.ERROR);
+		    	Window owner = this.guiPane.getScene().getWindow();
+				alert.initOwner(owner);
+				alert.setTitle("Error");
+				alert.setHeaderText("Cannot Save Data");
+				alert.setContentText("This file cannot be Saved.");
+				alert.showAndWait();
+	    	}
+	    }
+	    
+	    private void loadFile() {
+	    	FileChooser fileChooser = new FileChooser();
+	    	fileChooser.setTitle("Choose CS1302 File");
+	    	ExtensionFilter filter1 = new ExtensionFilter("CS1302 Files", "*.CS1302");
+	    	fileChooser.getExtensionFilters().addAll(filter1);
 	    	File selectedFile = fileChooser.showOpenDialog(null);
 	    	
 	    	if (selectedFile != null) {
 	    		this.vm.loadTasks(selectedFile);
 	    	}
-	    	if (!selectedFile.getAbsoluteFile().getName().equals("*.txt")) {
-	    		Alert alert = new Alert(Alert.AlertType.ERROR);
-		    	Window owner = this.guiPane.getScene().getWindow();
-				alert.initOwner(owner);
-				alert.setTitle("Error");
-				alert.setHeaderText("Cannot Load Data");
-				alert.setContentText("This file cannot be loaded. Can only accept .txt files.");
-				alert.showAndWait();
-	    	} 
+//	    	if (selectedFile) {
+//	    		Alert alert = new Alert(Alert.AlertType.ERROR);
+//		    	Window owner = this.guiPane.getScene().getWindow();
+//				alert.initOwner(owner);
+//				alert.setTitle("Error");
+//				alert.setHeaderText("Cannot Load Data");
+//				alert.setContentText("This file cannot be loaded. Missing components");
+//				alert.showAndWait();
+//	    	} 
 	    	if (selectedFile.getTotalSpace() == 0) {
 	    		Alert alert = new Alert(Alert.AlertType.ERROR);
 		    	Window owner = this.guiPane.getScene().getWindow();
