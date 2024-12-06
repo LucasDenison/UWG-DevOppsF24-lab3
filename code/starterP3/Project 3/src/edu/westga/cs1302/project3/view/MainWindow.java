@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.IOException;
 
 import edu.westga.cs1302.project3.Main;
-import edu.westga.cs1302.project3.view.AddTaskWindow;
 import edu.westga.cs1302.project3.viewmodel.ViewModel;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -42,6 +41,8 @@ public class MainWindow {
 	    private MenuItem saveMenuItem;
 	    @FXML
 	    private Button addTaskButton;
+	    @FXML
+	    private Button removeTaskButton;
 	    
 	    
 	    private ViewModel vm;
@@ -80,6 +81,11 @@ public class MainWindow {
 	    	this.addTaskButton.setOnAction(
 	    			(event) -> {
 	    				this.displayAddTasksScreen();
+	    			}
+	    		);
+	    	this.removeTaskButton.setOnAction(
+	    			(event) -> {
+	    				this.removeTask();
 	    			}
 	    		);
 	    }
@@ -167,4 +173,27 @@ public class MainWindow {
 				alert.showAndWait();
 			}
 		}
+	    
+	    private void removeTask() {
+	    	this.vm.getSelectedTask().bind(this.tasks.getSelectionModel().selectedItemProperty());
+	    	if (this.tasks.getItems().isEmpty()) {
+	    		Alert alert = new Alert(Alert.AlertType.ERROR);
+		    	Window owner = this.guiPane.getScene().getWindow();
+				alert.initOwner(owner);
+				alert.setTitle("Error");
+				alert.setHeaderText("Cannot remove task");
+				alert.setContentText("There are no tasks to remove. Add tasks first.");
+				alert.showAndWait();
+	    	}
+	    	if (this.vm.getSelectedTask() == null) {
+	    		Alert alert = new Alert(Alert.AlertType.ERROR);
+		    	Window owner = this.guiPane.getScene().getWindow();
+				alert.initOwner(owner);
+				alert.setTitle("Error");
+				alert.setHeaderText("Cannot remove task");
+				alert.setContentText("Selected Task is null.");
+				alert.showAndWait();
+	    	}
+	    	this.vm.removeTask();
+	    }
 }

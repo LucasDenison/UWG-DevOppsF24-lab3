@@ -30,6 +30,7 @@ public class ViewModel {
 	private TaskManager taskManager;
 	private ObjectProperty<File> selectedFile;
 	private StringProperty fileName;
+	private ObjectProperty<Task> selectedTask;
 	
 	/** Initialize the properties for the viewmodel
 	 */
@@ -40,6 +41,15 @@ public class ViewModel {
 		this.taskManager = new TaskManager();
 		this.fileName = new SimpleStringProperty("");
 		this.selectedFile = new SimpleObjectProperty<File>();
+		this.selectedTask = new SimpleObjectProperty<Task>();
+	}
+	
+	/**returns the selected task
+	 * 
+	 * @return the selected task
+	 */
+	public ObjectProperty getSelectedTask() {
+		return this.selectedTask;
 	}
 	
 	/**returns the title of the task
@@ -170,5 +180,18 @@ public class ViewModel {
 		this.description.setValue(desc);
 		Task task = new Task(title, desc);
 		this.tasks.add(task);
+	}
+	
+	/**removes a task from the list view
+	 */
+	public void removeTask() {
+		Task task = this.selectedTask.getValue();
+		if (task == null) {
+			throw new IllegalArgumentException("task cannot be null");
+		}
+		if (this.tasks.isEmpty()) {
+			throw new IllegalArgumentException("Cannot remove task because their are none.");
+		}
+		this.tasks.getValue().remove(task);
 	}
 }
